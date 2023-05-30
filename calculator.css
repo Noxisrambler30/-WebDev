@@ -1,0 +1,177 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    
+    transition: all .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+body{
+  
+    background: linear-gradient(#F5F7FA, #B8C6DB) no-repeat;
+}
+.back1{
+    display: flex;
+    flex-wrap: wrap;
+    height: 648px;
+}
+
+
+.back1 .container{
+    background:  url('../image/img3.jpg');
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    width: 510px;
+    height: 490px;
+    margin: 1% auto;
+    top: 80px; 
+    border-radius: 30px;
+    position: relative;
+ }
+
+.back1 .container h3{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    color:white;
+}
+.back1 .container h4{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #0d6abb;
+    cursor: pointer;
+}
+.back1 .container form{
+    width: 280px;
+    position: absolute;
+    transition: 0.5s;
+}
+ .back1 .container input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: white;
+    border-radius: 1.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+.back1 .b1{
+    display:grid;
+    margin: 76px 383px;
+}
+.back1 .b2{
+    margin: -344px 310px;
+}
+.back1 .b3{
+    margin: 74px 236px;
+}
+.back1 .b4{
+    margin: -410px 161px;
+}
+.back1 .b5{
+    margin: 75px 88px;
+}
+.back1 .b6{
+    margin: -136px 313px;
+}
+.back1 .container .b1 input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(92, 198, 230);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+.back1 .container .b2 input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(92, 198, 230);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+.back1 .container .b3 input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(183, 217, 228);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+.back1 .container .b4 input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(183, 217, 228);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+.back1 .container .b5 input[type="button"]{
+    width: 54px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(183, 217, 228);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+
+
+.back1 .container .b6 input[type="button"]{
+    width: 122px;
+    margin: 5px 0px 8px -1px;
+    background: rgb(27, 101, 220);
+    border-radius: 0.5rem;
+    border: 0;
+    outline: none;
+    color: #040202;
+    cursor: pointer;
+    height: 54px;
+}
+
+form .display{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+form .display input{
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    box-shadow: none;
+    margin: 7px -160px -48px 81px;
+    width: 0px;
+    height: 75px
+}

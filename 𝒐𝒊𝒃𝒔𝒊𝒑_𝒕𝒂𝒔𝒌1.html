@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR </title>
+   <link rel="stylesheet" href="calculator.css">
+
+</head>
+    <body>
+        <section class="back1" id="back1">
+            <div class="container">
+                <form method="post">
+                    <div class="display">
+                        <input type="text" id="display" class="display" readonly><br>
+                    </div>
+                    <div class="b1"> 
+                    <input type="button" value="clear" class="button" onclick="clearDisplay()">
+                    <input type="button" value="root" class="button" onclick="appendToDisplay('Math.sqrt(')">
+                    <input type="button" value="/" class="button" onclick="appendToDisplay('/')">
+                    <input type="button" value="-" class="button" onclick="appendToDisplay('-')">
+                    </div>  
+                    
+                    <div class="b2">
+                    <input type="button" value="del" class="button" onclick="deleteCharacter()">
+                    <input type="button" value="%" class="button" onclick="appendToDisplay('%')">
+                    <input type="button" value="*" class="button" onclick="appendToDisplay('*')">
+                    <input type="button" value="+" class="button" onclick="appendToDisplay('+')">
+                    </div>  
+            
+                    <div class="b3">
+                    <input type="button" value="ans" class="button" onclick="calculate()">
+                    <input type="button" value="9" class="button" onclick="appendToDisplay('9')">
+                    <input type="button" value="6" class="button" onclick="appendToDisplay('6')">
+                    <input type="button" value="3" class="button" onclick="appendToDisplay('3')">
+                    <input type="button" value="+-" class="button" onclick="toggleSign()"> 
+                    </div> 
+                    
+                    <div class="b4">
+                    <input type="button" value=")" class="button" onclick="appendToDisplay(')')">
+                    <input type="button" value="8" class="button" onclick="appendToDisplay('8')">
+                    <input type="button" value="5" class="button" onclick="appendToDisplay('5')">
+                    <input type="button" value="2" class="button" onclick="appendToDisplay('2')">
+                    <input type="button" value="0" class="button" onclick="appendToDisplay('0')">
+                    </div> 
+            
+                    <div class="b5">
+                    <input type="button" value="(" class="button" onclick="appendToDisplay('(')">
+                    <input type="button" value="7" class="button" onclick="appendToDisplay('7')">
+                    <input type="button" value="4" class="button" onclick="appendToDisplay('4')">
+                    <input type="button" value="1" class="button" onclick="appendToDisplay('1')">
+                    <input type="button" value="." class="button" onclick="appendToDisplay('.')">
+                    </div> 
+                    
+                    <div class="b6">
+                    <input type="button" value="ENTER" class="button" onclick="calculate()">
+                    </div>
+                </form>
+            </div>
+        <script>
+        function appendToDisplay(value) 
+        {
+            var display = document.getElementById('display');
+            display.value += value;
+        }
+        function clearDisplay() 
+        {
+            var display = document.getElementById('display');
+            display.value = '';
+        }
+        function deleteCharacter() 
+        {
+            var display = document.getElementById('display');
+            display.value = display.value.slice(0, -1);
+        }
+        function toggleSign() 
+        {
+            var display = document.getElementById('display');
+            var currentValue = display.value;
+            if (currentValue.startsWith('-')) 
+            {
+                display.value = currentValue.substring(1);
+            } 
+            else 
+            {
+                display.value = '-' + currentValue;
+            }
+        }
+        function calculate() 
+        {
+            var display = document.getElementById('display');
+            var expression = display.value;
+
+            var result = eval(expression);
+
+            display.value = result;
+        }
+        </script>
+    </section>
+</body>   
+</html>

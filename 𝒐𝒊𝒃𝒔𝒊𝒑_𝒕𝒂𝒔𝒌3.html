@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+    body{
+
+            background-image: url('image/img2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background-image: url('image/img3.jpg');
+            background-size: cover;
+            background-position: center;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        form input[type="text"] {
+            width: 70%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input .placeholder{
+            color:green;
+        }
+
+        form button {
+            padding: 5px 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        span{
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        li {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .completed-task {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button.complete-btn {
+            background-color: #4caf50;
+        }
+</style>
+</head>
+     <body>
+        <div class="container">
+            <h1>To-Do List</h1>
+            <form id="todo-form">
+                <input type="texts" id="task-input" placeholder="Enter a task...">
+                <button type="submit">Add Task</button>
+            </form>
+            <h2>Pending Tasks</h2>
+            <ul id="pending-tasks"></ul>
+            <h2>Completed Tasks</h2>
+            <ul id="completed-tasks"></ul>
+        </div>
+   <script>
+    // Get elements
+    const todoForm = document.getElementById('todo-form');
+    const taskInput = document.getElementById('task-input');
+    const pendingTasks = document.getElementById('pending-tasks');
+    const completedTasks = document.getElementById('completed-tasks');
+
+    // Add event listener to form submission
+    todoForm.addEventListener('submit', addTask);
+
+    // Add task to the list
+    function addTask(event) {
+      event.preventDefault();
+      const taskText = taskInput.value;
+      if (taskText === '') {
+        return;
+      }
+
+      const taskItem = document.createElement('li');
+      const taskTextSpan = document.createElement('span');
+      const dateTimeSpan = document.createElement('span');
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleString();
+
+      taskTextSpan.innerText = taskText;
+      dateTimeSpan.innerText = formattedDate;
+
+      const completeButton = document.createElement('button');
+      completeButton.innerText = 'Complete';
+      completeButton.addEventListener('click', completeTask);
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = 'Delete';
+      deleteButton.addEventListener('click', deleteTask);
+
+      taskItem.appendChild(taskTextSpan);
+      taskItem.appendChild(dateTimeSpan);
+      taskItem.appendChild(completeButton);
+      taskItem.appendChild(deleteButton);
+
+      pendingTasks.appendChild(taskItem);
+
+      taskInput.value = '';
+    }
+
+    // Complete task
+    function completeTask() {
+        const taskItem = this.parentNode;
+        taskItem.classList.add('completed-task');
+        this.innerText = 'Undo';
+        this.removeEventListener('click', completeTask);
+        this.addEventListener('click', undoTask);
+        completedTasks.appendChild(taskItem);
+    }
+
+    // Undo task completion
+    function undoTask() {
+      const taskItem = this.parentNode;
+      taskItem.classList.remove('completed-task');
+      this.innerText = 'Complete';
+      this.removeEventListener('click', undoTask);
+      this.addEventListener('click', completeTask);
+      pendingTasks.appendChild(taskItem);
+    }
+
+    function deleteTask() {
+      const taskItem = this.parentNode;
+      const parentList = taskItem.parentNode;
+      parentList.removeChild(taskItem);
+    }
+  </script>
+</body>
+</html>
